@@ -17,6 +17,7 @@ function getNumber(array) {
     let oddNum = 0;
     for (value of array) {
         if (value % 2 === 0) {
+            evenNum++;
         }
         else {
             oddNum++

@@ -13,7 +13,7 @@ describe('getNumber', () => {
 })
 describe('findTitle', () => {
     it('should get cooking aggs time', () => {
-        expect(findTitle(arr, 'js')).to.equal([{ title: 'I like JS' },
+        expect(findTitle(arr, 'js')).to.eql([{ title: 'I like JS' },
         { user: 'This obj doesn’t have key title js' },
         { title: 'Js - is the best!' }])
     })

@@ -25,7 +25,7 @@ describe('oddArray', () => {
 })
 describe('revArray', () => {
     it('should reverse array', () => {
-        expect(revArray([1, 2, 3, 4, 5])).to.equal([5, 4, 3, 2, 1]);
+        expect(revArray([1, 2, 3, 4, 5])).to.eql([5, 4, 3, 2, 1]);
     })
 })
 describe('oddElArray', () => {

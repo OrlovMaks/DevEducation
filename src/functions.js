@@ -13,10 +13,7 @@ let n = d.getDay();
 console.log(days[n]);
 
 // 2 Задание
-let a = 3, b = 5;
-
-console.log(sumA(a, b))
-
 function sumA(x, y) {
     return x + y;
 }
+console.log(sumA(3, 5))

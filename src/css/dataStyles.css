@@ -1,0 +1,35 @@
+body{
+    font-size: 25px;
+    background-color: blanchedalmond;
+}
+input{
+    width: 200px;
+    height: 34px;
+}
+.nodeDataAfter{
+    width: 100px;
+}
+button{
+    width: 208px;
+    height: 40px;
+
+}
+.list{
+    display: inline-block;
+}
+.data{
+    margin-top: 15px;
+    padding: 30px 5px 0 5px;
+    border: 6px solid rgb(35, 70, 116);
+    display: inline-block;
+    height: 60px;
+    background-color: rgba(57, 143, 255, 0.705);
+}
+.next{
+    margin-top: 15px;
+    padding: 30px 5px 0 5px;
+    border: 6px solid rgb(35, 70, 116);
+    display: inline-block;
+    height: 60px;
+    background-color:rgba(57, 143, 255, 0.705);
+}

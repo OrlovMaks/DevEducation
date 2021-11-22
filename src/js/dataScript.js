@@ -11,6 +11,8 @@ const getInd = document.querySelector('.getInd');
 const getIndVal = document.querySelector('.getIndVal');
 const getElem = document.querySelector('.getElem');
 const getElemVal = document.querySelector('.getElemVal');
+const addArr = document.querySelector('.addArr');
+const addArrLast = document.querySelector('.addArrLast');
 
 class Node {
     constructor(data, next = null) {
@@ -145,6 +147,9 @@ delNode.addEventListener('click', function () {
 })
 delLastNode.addEventListener('click', function () {
     outputNode.innerHTML = ''
+    if(list.toArray().length == 1){
+        return
+    }
     list.remove(list.toArray()[list.toArray().length - 1].data)
     list.toArray()
     update()
@@ -166,4 +171,24 @@ getElem.addEventListener('click', function () {
     else {
         getElemVal.innerHTML = `<span>Елемент:${list.toArray()[nodeData.value].data}`
     }
+})
+addArr.addEventListener('click', function () {
+    let nodeArr = nodeData.value.split(',')
+    let reversedArr = nodeArr.reverse()
+    outputNode.innerHTML = ''
+    for (let i = 0; i < reversedArr.length; i++){
+        list.prepend(reversedArr[i])
+    }
+    list.toArray()
+    update()
+})
+addArrLast.addEventListener('click', function () {
+    let nodeArr = nodeData.value.split(',')
+    let reversedArr = nodeArr.reverse()
+    outputNode.innerHTML = ''
+    for (let i = 0; i < reversedArr.length; i++){
+        list.append(reversedArr[i])
+    }
+    list.toArray()
+    update()
 })

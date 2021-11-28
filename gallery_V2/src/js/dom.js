@@ -6,5 +6,4 @@ export const DOM = {
     modalBody: document.querySelector('.modalBody'),
     close: document.querySelector('.close'),
     bigImage: document.createElement('img'),
-    imgClick: document.querySelector('img')
 };

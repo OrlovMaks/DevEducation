@@ -1,0 +1,56 @@
+body{
+    background-image: url(../img/wall.jpg);
+    background-size: cover;
+}
+.frameArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.frame{
+    z-index: 2;
+    position: absolute;
+    margin-top: 100px;
+    width: 550px;
+}
+.buttons{
+    z-index: 3;
+    margin-top: 535px;
+}
+.previous{
+    cursor: pointer;
+}
+.play{
+    cursor: pointer;
+    width: 52px;
+}
+.next{
+    cursor: pointer;
+}
+.slide{
+    margin-top: 210px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    left: 0px;
+	top: 0px;
+	width: 100%;
+	opacity: 0;
+	z-index: 1;
+
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	transition: opacity 1s;
+}
+.photo{
+    width: 325px;
+}
+
+.show{
+    opacity: 1;
+}
+.buttons img:hover{
+    transform: scale(1.1);
+}

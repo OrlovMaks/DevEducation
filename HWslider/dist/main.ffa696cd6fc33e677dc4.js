@@ -49,7 +49,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/style.css */ \"./css/style.css\");\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom */ \"./js/dom.js\");\n\n\n\nvar play = __webpack_require__(/*! ../img/play.png */ \"./img/play.png\");\n\nvar stop = __webpack_require__(/*! ../img/stop.png */ \"./img/stop.png\");\n\nvar slideInterval = setInterval(nextSlide, 2500);\nvar playing = true;\nvar currentSlide = 0;\n\nfunction nextSlide() {\n  showSlide(currentSlide + 1);\n}\n\nfunction previousSlide() {\n  showSlide(currentSlide - 1);\n}\n\nfunction showSlide(current) {\n  _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.slide[currentSlide].classList.remove('show');\n  currentSlide = (current + _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.slide.length) % _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.slide.length;\n  _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.slide[currentSlide].classList.add('show');\n}\n\nfunction pauseSlide() {\n  _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.play.setAttribute(\"src\", \"../src/img/play.png\");\n  playing = false;\n  clearInterval(slideInterval);\n}\n\nfunction playSlide() {\n  _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.play.setAttribute(\"src\", \"../src/img/stop.png\");\n  playing = true;\n  slideInterval = setInterval(nextSlide, 2500);\n}\n\n_dom__WEBPACK_IMPORTED_MODULE_1__.DOM.play.addEventListener('click', function () {\n  if (playing) pauseSlide();else playSlide();\n});\n_dom__WEBPACK_IMPORTED_MODULE_1__.DOM.next.addEventListener('click', function () {\n  pauseSlide();\n  nextSlide();\n});\n_dom__WEBPACK_IMPORTED_MODULE_1__.DOM.previous.addEventListener('click', function () {\n  pauseSlide();\n  previousSlide();\n});\n\n//# sourceURL=webpack:///./js/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/style.css */ \"./css/style.css\");\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom */ \"./js/dom.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\n\n\nvar play = __webpack_require__(/*! ../img/play.png */ \"./img/play.png\");\n\nvar stop = __webpack_require__(/*! ../img/stop.png */ \"./img/stop.png\");\n\nvar Slider = /*#__PURE__*/function () {\n  function Slider() {\n    _classCallCheck(this, Slider);\n\n    _defineProperty(this, \"slideInterval\", setInterval(this.nextSlide, 2500));\n\n    _defineProperty(this, \"playing\", true);\n\n    _defineProperty(this, \"currentSlide\", 0);\n\n    this.showSlide = this.showSlide.bind();\n    this.playButt = this.playButt.bind();\n    this.next = this.next.bind();\n    this.previous = this.previous.bind();\n  }\n\n  _createClass(Slider, [{\n    key: \"showSlide\",\n    value: function showSlide(current) {\n      _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.slide[this.currentSlide].classList.remove('show');\n      currentSlide = (current + _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.slide.length) % _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.slide.length;\n      _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.slide[this.currentSlide].classList.add('show');\n    }\n  }, {\n    key: \"nextSlide\",\n    value: function nextSlide() {\n      this.showSlide(this.currentSlide + 1);\n    }\n  }, {\n    key: \"previousSlide\",\n    value: function previousSlide() {\n      this.showSlide(this.currentSlide - 1);\n    }\n  }, {\n    key: \"pauseSlide\",\n    value: function pauseSlide() {\n      _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.play.setAttribute(\"src\", \"../src/img/play.png\");\n      this.playing = false;\n      clearInterval(this.slideInterval);\n    }\n  }, {\n    key: \"playSlide\",\n    value: function playSlide() {\n      _dom__WEBPACK_IMPORTED_MODULE_1__.DOM.play.setAttribute(\"src\", \"../src/img/stop.png\");\n      this.playing = true;\n      slideInterval = setInterval(this.nextSlide, 2500);\n    }\n  }, {\n    key: \"playButt\",\n    value: function playButt() {\n      if (this.playing) this.pauseSlide();else this.playSlide();\n    }\n  }, {\n    key: \"next\",\n    value: function next() {\n      this.pauseSlide();\n      this.nextSlide();\n    }\n  }, {\n    key: \"previous\",\n    value: function previous() {\n      this.pauseSlide();\n      this.previousSlide();\n    }\n  }]);\n\n  return Slider;\n}();\n\nvar slider = new Slider();\n_dom__WEBPACK_IMPORTED_MODULE_1__.DOM.play.addEventListener('click', slider.playButt);\n_dom__WEBPACK_IMPORTED_MODULE_1__.DOM.next.addEventListener('click', slider.next);\n_dom__WEBPACK_IMPORTED_MODULE_1__.DOM.previous.addEventListener('click', slider.previous);\n\n//# sourceURL=webpack:///./js/script.js?");
 
 /***/ }),
 
@@ -3188,7 +3188,7 @@ eval("__webpack_require__(/*! ../modules/web.timers */ \"../node_modules/core-js
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"../node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ \"../node_modules/css-loader/dist/runtime/getUrl.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);\n// Imports\n\n\n\nvar ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../img/wall.jpg */ \"./img/wall.jpg\"), __webpack_require__.b);\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\nvar ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"body{\\r\\n    background-image: url(\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \");\\r\\n    background-size: cover;\\r\\n}\\r\\n.frameArea{\\r\\n    display: flex;\\r\\n    flex-direction: row;\\r\\n    justify-content: center;\\r\\n}\\r\\n.frame{\\r\\n    z-index: 2;\\r\\n    position: absolute;\\r\\n    margin-top: 100px;\\r\\n    width: 550px;\\r\\n}\\r\\n.buttons{\\r\\n    z-index: 3;\\r\\n    margin-top: 535px;\\r\\n}\\r\\n.previous{\\r\\n    cursor: pointer;\\r\\n}\\r\\n.play{\\r\\n    cursor: pointer;\\r\\n    width: 52px;\\r\\n}\\r\\n.next{\\r\\n    cursor: pointer;\\r\\n}\\r\\n.slide{\\r\\n    margin-top: 210px;\\r\\n    position: absolute;\\r\\n    display: flex;\\r\\n    flex-direction: row;\\r\\n    justify-content: center;\\r\\n    left: 0px;\\r\\n\\ttop: 0px;\\r\\n\\twidth: 100%;\\r\\n\\topacity: 0;\\r\\n\\tz-index: 1;\\r\\n\\r\\n\\t-webkit-transition: opacity 1s;\\r\\n\\t-moz-transition: opacity 1s;\\r\\n\\t-o-transition: opacity 1s;\\r\\n\\ttransition: opacity 1s;\\r\\n}\\r\\n.photo{\\r\\n    width: 325px;\\r\\n}\\r\\n\\r\\n.show{\\r\\n    opacity: 1;\\r\\n}\\r\\n.buttons img:hover{\\r\\n    transform: scale(1.1);\\r\\n}\\r\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack:///./css/style.css?../node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"../node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"html,body{\\r\\n    height: 100%;\\r\\n    display: flex;\\r\\n    flex-direction: column;\\r\\n    justify-content: center;\\r\\n}\\r\\n.background{\\r\\n    position: fixed;\\r\\n    top: 0;\\r\\n    left: 0;\\r\\n    width: 100%;\\r\\n    height: 100%; \\r\\n}\\r\\n.frameArea{\\r\\n    display: flex;\\r\\n    flex-direction: column;\\r\\n    justify-content: center;\\r\\n    align-items: center;\\r\\n}\\r\\n.frame{\\r\\n    z-index: 2;\\r\\n    position: absolute;\\r\\n    width: 550px;\\r\\n}\\r\\n.buttons{\\r\\n    margin-top: 384px;\\r\\n    z-index: 3;\\r\\n}\\r\\n.previous{\\r\\n    cursor: pointer;\\r\\n}\\r\\n.play{\\r\\n    cursor: pointer;\\r\\n    width: 52px;\\r\\n}\\r\\n.next{\\r\\n    cursor: pointer;\\r\\n}\\r\\n.slide{\\r\\n    display: inline-block;\\r\\n    position: absolute;\\r\\n\\topacity: 0;\\r\\n\\tz-index: 1;\\r\\n    margin-top: -405px;\\r\\n    margin-left: -183px;\\r\\n\\t-webkit-transition: opacity 1s;\\r\\n\\t-moz-transition: opacity 1s;\\r\\n\\t-o-transition: opacity 1s;\\r\\n\\ttransition: opacity 1s;\\r\\n}\\r\\n.photo{\\r\\n    width: 325px;\\r\\n}\\r\\n\\r\\n.show{\\r\\n    opacity: 1;\\r\\n}\\r\\n.buttons img:hover{\\r\\n    transform: scale(1.1);\\r\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack:///./css/style.css?../node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -3200,17 +3200,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\nmodule.exports = function (cssWithMappingToString) {\n  var list = []; // return the list of modules as css string\n\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = \"\";\n      var needLayer = typeof item[5] !== \"undefined\";\n\n      if (item[4]) {\n        content += \"@supports (\".concat(item[4], \") {\");\n      }\n\n      if (item[2]) {\n        content += \"@media \".concat(item[2], \" {\");\n      }\n\n      if (needLayer) {\n        content += \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\");\n      }\n\n      content += cssWithMappingToString(item);\n\n      if (needLayer) {\n        content += \"}\";\n      }\n\n      if (item[2]) {\n        content += \"}\";\n      }\n\n      if (item[4]) {\n        content += \"}\";\n      }\n\n      return content;\n    }).join(\"\");\n  }; // import a list of modules into the list\n\n\n  list.i = function i(modules, media, dedupe, supports, layer) {\n    if (typeof modules === \"string\") {\n      modules = [[null, modules, undefined]];\n    }\n\n    var alreadyImportedModules = {};\n\n    if (dedupe) {\n      for (var k = 0; k < this.length; k++) {\n        var id = this[k][0];\n\n        if (id != null) {\n          alreadyImportedModules[id] = true;\n        }\n      }\n    }\n\n    for (var _k = 0; _k < modules.length; _k++) {\n      var item = [].concat(modules[_k]);\n\n      if (dedupe && alreadyImportedModules[item[0]]) {\n        continue;\n      }\n\n      if (typeof layer !== \"undefined\") {\n        if (typeof item[5] === \"undefined\") {\n          item[5] = layer;\n        } else {\n          item[1] = \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\").concat(item[1], \"}\");\n          item[5] = layer;\n        }\n      }\n\n      if (media) {\n        if (!item[2]) {\n          item[2] = media;\n        } else {\n          item[1] = \"@media \".concat(item[2], \" {\").concat(item[1], \"}\");\n          item[2] = media;\n        }\n      }\n\n      if (supports) {\n        if (!item[4]) {\n          item[4] = \"\".concat(supports);\n        } else {\n          item[1] = \"@supports (\".concat(item[4], \") {\").concat(item[1], \"}\");\n          item[4] = supports;\n        }\n      }\n\n      list.push(item);\n    }\n  };\n\n  return list;\n};\n\n//# sourceURL=webpack:///../node_modules/css-loader/dist/runtime/api.js?");
-
-/***/ }),
-
-/***/ "../node_modules/css-loader/dist/runtime/getUrl.js":
-/*!*********************************************************!*\
-  !*** ../node_modules/css-loader/dist/runtime/getUrl.js ***!
-  \*********************************************************/
-/***/ ((module) => {
-
-"use strict";
-eval("\n\nmodule.exports = function (url, options) {\n  if (!options) {\n    options = {};\n  }\n\n  if (!url) {\n    return url;\n  }\n\n  url = String(url.__esModule ? url.default : url); // If url is already wrapped in quotes, remove them\n\n  if (/^['\"].*['\"]$/.test(url)) {\n    url = url.slice(1, -1);\n  }\n\n  if (options.hash) {\n    url += options.hash;\n  } // Should url be wrapped?\n  // See https://drafts.csswg.org/css-values-3/#urls\n\n\n  if (/[\"'() \\t\\n]|(%20)/.test(url) || options.needQuotes) {\n    return \"\\\"\".concat(url.replace(/\"/g, '\\\\\"').replace(/\\n/g, \"\\\\n\"), \"\\\"\");\n  }\n\n  return url;\n};\n\n//# sourceURL=webpack:///../node_modules/css-loader/dist/runtime/getUrl.js?");
 
 /***/ }),
 
@@ -3332,17 +3321,6 @@ eval("\n\n/* istanbul ignore next  */\nfunction apply(styleElement, options, obj
 "use strict";
 eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElement) {\n  if (styleElement.styleSheet) {\n    styleElement.styleSheet.cssText = css;\n  } else {\n    while (styleElement.firstChild) {\n      styleElement.removeChild(styleElement.firstChild);\n    }\n\n    styleElement.appendChild(document.createTextNode(css));\n  }\n}\n\nmodule.exports = styleTagTransform;\n\n//# sourceURL=webpack:///../node_modules/style-loader/dist/runtime/styleTagTransform.js?");
 
-/***/ }),
-
-/***/ "./img/wall.jpg":
-/*!**********************!*\
-  !*** ./img/wall.jpg ***!
-  \**********************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-eval("module.exports = __webpack_require__.p + \"ce0080078adee43bc308.jpg\";\n\n//# sourceURL=webpack:///./img/wall.jpg?");
-
 /***/ })
 
 /******/ 	});
@@ -3370,9 +3348,6 @@ eval("module.exports = __webpack_require__.p + \"ce0080078adee43bc308.jpg\";\n\n
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
@@ -3418,32 +3393,6 @@ eval("module.exports = __webpack_require__.p + \"ce0080078adee43bc308.jpg\";\n\n
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
 /******/ 		__webpack_require__.p = "";
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"main": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		// no on chunks loaded
-/******/ 		
-/******/ 		// no jsonp function
 /******/ 	})();
 /******/ 	
 /************************************************************************/

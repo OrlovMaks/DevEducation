@@ -1,40 +1,54 @@
 import '../css/style.css';
 import { DOM } from "./dom";
-const play = require('../img/play.png')
-const stop = require('../img/stop.png')
-let slideInterval = setInterval(nextSlide, 2500);
-let playing = true;
-let currentSlide = 0;
-function nextSlide() {
-    showSlide(currentSlide + 1);
-}
-function previousSlide() {
-    showSlide(currentSlide - 1);
-}
-function showSlide(current) {
-    DOM.slide[currentSlide].classList.remove('show');
-    currentSlide = (current + DOM.slide.length) % DOM.slide.length;
-    DOM.slide[currentSlide].classList.add('show');
-}
-function pauseSlide() {
-    DOM.play.setAttribute("src", "../src/img/play.png")
-    playing = false;
-    clearInterval(slideInterval);
-}
-function playSlide() {
-    DOM.play.setAttribute("src", "../src/img/stop.png")
+const play = require('../img/play.png');
+const stop = require('../img/stop.png');
+
+class Slider {
+    slideInterval = setInterval(this.nextSlide, 2500);
     playing = true;
-    slideInterval = setInterval(nextSlide, 2500);
+    currentSlide = 0;
+    constructor() {
+        this.showSlide = this.showSlide.bind();
+        this.playButt = this.playButt.bind();
+        this.next = this.next.bind();
+        this.previous = this.previous.bind();
+    }
+    showSlide(current) {
+        DOM.slide[this.currentSlide].classList.remove('show');
+        currentSlide = (current + DOM.slide.length) % DOM.slide.length;
+        DOM.slide[this.currentSlide].classList.add('show');
+    }
+    nextSlide() {
+        this.showSlide(this.currentSlide + 1);
+    }
+    previousSlide() {
+        this.showSlide(this.currentSlide - 1);
+    }
+    pauseSlide() {
+        DOM.play.setAttribute("src", "../src/img/play.png");
+        this.playing = false;
+        clearInterval(this.slideInterval);
+    }
+    playSlide() {
+        DOM.play.setAttribute("src", "../src/img/stop.png");
+        this.playing = true;
+        slideInterval = setInterval(this.nextSlide, 2500);
+    }
+    playButt() {
+        if (this.playing) this.pauseSlide();
+        else this.playSlide();
+    }
+    next() {
+        this.pauseSlide();
+        this.nextSlide();
+    }
+    previous() {
+        this.pauseSlide();
+        this.previousSlide();
+    }
 }
-DOM.play.addEventListener('click', function () {
-    if (playing) pauseSlide();
-    else playSlide();
-})
-DOM.next.addEventListener('click', function () {
-    pauseSlide();
-    nextSlide();
-})
-DOM.previous.addEventListener('click', function () {
-    pauseSlide();
-    previousSlide();
-})
+const slider = new Slider();
+
+DOM.play.addEventListener('click', slider.playButt)
+DOM.next.addEventListener('click', slider.next)
+DOM.previous.addEventListener('click', slider.previous)

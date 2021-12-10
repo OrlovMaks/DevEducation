@@ -4,18 +4,19 @@ const play = require('../img/play.png');
 const stop = require('../img/stop.png');
 
 class Slider {
-    slideInterval = setInterval(this.nextSlide, 2500);
-    playing = true;
-    currentSlide = 0;
     constructor() {
-        this.showSlide = this.showSlide.bind();
-        this.playButt = this.playButt.bind();
-        this.next = this.next.bind();
-        this.previous = this.previous.bind();
+        this.showSlide = this.showSlide.bind(this);
+        this.playButt = this.playButt.bind(this);
+        this.next = this.next.bind(this);
+        this.previous = this.previous.bind(this);
+        this.nextSlide = this.nextSlide.bind(this);
+        this.slideInterval = setInterval(this.nextSlide, 2500);
+        this.playing = true;
+        this.currentSlide = 0;
     }
     showSlide(current) {
         DOM.slide[this.currentSlide].classList.remove('show');
-        currentSlide = (current + DOM.slide.length) % DOM.slide.length;
+        this.currentSlide = (current + DOM.slide.length) % DOM.slide.length;
         DOM.slide[this.currentSlide].classList.add('show');
     }
     nextSlide() {
@@ -32,7 +33,7 @@ class Slider {
     playSlide() {
         DOM.play.setAttribute("src", "../src/img/stop.png");
         this.playing = true;
-        slideInterval = setInterval(this.nextSlide, 2500);
+        this.slideInterval = setInterval(this.nextSlide, 2500);
     }
     playButt() {
         if (this.playing) this.pauseSlide();

@@ -1,6 +1,10 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import { threeTask } from "./types";
+
 /* 1.Составьте алгоритм, который считает, сколько времени вам нужно на
 приготовление яиц.*/
-function getCookingTime(eggsAmount) {
+function getCookingTime(eggsAmount: number) {
     if (Number(eggsAmount) === 0) {
         return "Купи яйца!!!"
     }
@@ -12,10 +16,10 @@ console.log(getCookingTime(23));
 
 /* 2.Получая массив чисел. Все они либо нечетные, либо четные, кроме
 одного. Тебе нужно его найти.*/
-function getNumber(array) {
+function getNumber(array: number[]) {
     let evenNum = 0;
     let oddNum = 0;
-    for (value of array) {
+    for (let value of array) {
         if (value % 2 === 0) {
             evenNum++;
         }
@@ -36,10 +40,10 @@ console.log(getNumber([0, 2, 8, -4, 0, -122, 13, -4, 28, 12]))
 фильтрует массив, заданный как первый параметр, и возвращает
 массив объектов, которые содержат в своих заголовках заданную строку
 в качестве второго параметра (без учета регистра).*/
-function findTitle(array, str) {
+function findTitle(array: threeTask, str: string) {
     const temp = [];
     for (let value of array) {
-        const key = Object.keys(value);
+        const key: any = Object.keys(value);
         if (String(value[key].toLowerCase()).includes(str))
             temp.push({ [key]: value[key] });
     }
@@ -49,7 +53,7 @@ function findTitle(array, str) {
 const arr = [
     { title: 'Some title1' },
     { title: 'I like JS' },
-    { user: 'This obj doesn\’t have key title js' },
+    { user: 'This obj does not have key title js' },
     { title: 'Js - is the best!' }
 ];
 
@@ -60,7 +64,7 @@ result.forEach(function (element) {
 
 /*5. Принимая число, ваша функция должна найти следующий
 положительный палиндром большего размера.*/
-function reverse(nums) {
+function reverse(nums: number) {
     var reverse = "";
     for (var i = String(nums).length - 1; i >= 0; i--) {
         reverse += String(nums)[i];
@@ -82,7 +86,8 @@ console.log(Palindrome(12))
 /*6. Создать структуру данных Set, используя объект, создать методы add,
 remove, has*/
 let mySet = new Set("1, 3, 4, 5, 6")
-mySet.add(2);
-mySet.delete(6);
-console.log(mySet.has(2));
-console.log(mySet.has(6));
+mySet.add('2');
+mySet.delete('6');
+console.log(mySet.has('2'));
+console.log(mySet.has('6'));
+

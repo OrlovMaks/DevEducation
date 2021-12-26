@@ -1,17 +1,20 @@
-import { DOM } from '../js/dom'
+import { DOM } from './dom'
+import { photos } from './types'
 let currentPage = 1;
 const elements = 9;
-export async function mainLogic() {
+export async function mainLogic(): Promise<void> {
     await getResponse();
     fillPhotos(DOM.state.photos, DOM.photoArea, elements, currentPage);
     setPagination(DOM.state.photos, DOM.paginationElem, elements);
 }
-function getResponse() {
-    return fetch('https://jsonplaceholder.typicode.com/photos?_limit=27')
-        .then((res) => res.json())
-        .then((photos) => DOM.state.photos = photos)
-}
-function fillPhotos(photos, wrapper, elemPerPage, page) {
+export async function getResponse(): Promise<string> {
+    const res = await fetch('https://jsonplaceholder.typicode.com/photos?_limit=27');
+    const photos = await res.json();
+    return DOM.state.photos = photos;
+};
+
+
+function fillPhotos(photos: Array<photos>, wrapper: Element, elemPerPage: number, page: number): void {
     wrapper.innerHTML = "";
     page--;
 
@@ -28,7 +31,7 @@ function fillPhotos(photos, wrapper, elemPerPage, page) {
     }
 }
 
-function setPagination(items, wrapper, elemPerPage) {
+function setPagination(items: Array<photos>, wrapper: Element, elemPerPage: number): void {
     wrapper.innerHTML = "";
     let pageCount = Math.ceil(items.length / elemPerPage);
     for (let i = 1; i < pageCount + 1; i++) {
@@ -37,10 +40,10 @@ function setPagination(items, wrapper, elemPerPage) {
     }
 }
 
-function PaginationButton(page, items) {
+function PaginationButton(page: number, items: Array<photos>): Element {
     let button = document.createElement('button')
-    button.innerText = page;
-    if (currentPage == page) button.classList.add('active');
+    button.innerText = `${page}`;
+    if (currentPage === page) button.classList.add('active');
     button.addEventListener('click', function () {
         currentPage = page;
         fillPhotos(items, DOM.photoArea, elements, currentPage);
@@ -52,7 +55,7 @@ function PaginationButton(page, items) {
 }
 
 
-function modalImage(url) {
+function modalImage(url: string): void {
     DOM.modalBody.innerHTML = '';
     DOM.bigImage.setAttribute('src', `${url}`);
     DOM.modalBody.appendChild(DOM.bigImage);
@@ -60,7 +63,7 @@ function modalImage(url) {
     closeImg()
 }
 
-function closeImg() {
+function closeImg(): void {
     DOM.close.addEventListener('click', function () {
         DOM.modalParent.classList.remove('active');
     });

@@ -4,7 +4,7 @@ import { threeTask } from "./types";
 
 /* 1.Составьте алгоритм, который считает, сколько времени вам нужно на
 приготовление яиц.*/
-function getCookingTime(eggsAmount: number) {
+function getCookingTime(eggsAmount: number): number | string {
     if (Number(eggsAmount) === 0) {
         return "Купи яйца!!!"
     }
@@ -16,7 +16,7 @@ console.log(getCookingTime(23));
 
 /* 2.Получая массив чисел. Все они либо нечетные, либо четные, кроме
 одного. Тебе нужно его найти.*/
-function getNumber(array: number[]) {
+function getNumber(array: number[]): number {
     let evenNum = 0;
     let oddNum = 0;
     for (let value of array) {
@@ -64,7 +64,7 @@ result.forEach(function (element) {
 
 /*5. Принимая число, ваша функция должна найти следующий
 положительный палиндром большего размера.*/
-function reverse(nums: number) {
+function reverse(nums: number): string {
     var reverse = "";
     for (var i = String(nums).length - 1; i >= 0; i--) {
         reverse += String(nums)[i];

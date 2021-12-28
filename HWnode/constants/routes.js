@@ -1,0 +1,20 @@
+module.exports = {
+    GET_USER: '/get-user',
+    GET_ALL_STUDENTS: '/get-all-students',
+    CREATE_UNIVERSITY: '/create-university',
+    GET_UNIVERSITY: '/get-university',
+    GET_ALL_UNIVERSITIES: '/get-all-universities',
+    CREATE_TEACHER: '/create-teacher',
+    CREATE_STUDENT: '/create-student',
+    GET_TEACHER_BY_UNIV_ID: '/get-teacher-by-univ-id',
+    CREATE_COURSE: '/create-course',
+    GET_COURSES_BY_UNIV_ID: '/get-courses-by-univ-id',
+    DELETE_STUDENT: '/delete-student',
+    GET_STUDENT_BY_COURSE: '/get-student-by-course',
+    SET_COURSE_FOR_STUDENT: '/set-course-for-student',
+    GET_STUDENT_RATE: '/get-student-rate',
+    SET_MARKS_FOR_STUDENTS: '/set-marks',
+    DELETE_STUDENT_FROM_COURSE: '/delete-student-from-course',
+    UPDATE_STUDENT_DATA: '/update-student-data',
+    GET_ALL_DATA: '/get-all-data'
+};
